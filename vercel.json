@@ -10,11 +10,15 @@
       "use": "@vercel/static"
     }
   ],
-  "routes": [
-    { "src": "/api/rooms/(.*)", "dest": "server.js" },
-    { "src": "/api/users/(.*)", "dest": "server.js" },
-    { "src": "/api/bookings/(.*)", "dest": "server.js" },
-    { "src": "/(.*)", "dest": "/frontend/build/index.html" }
-  ],
-  "cleanUrls": true
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/server.js"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/frontend/build/index.html"
+    }
+  ]
 }
